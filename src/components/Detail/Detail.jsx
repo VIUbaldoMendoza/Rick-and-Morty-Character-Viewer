@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import styles from "./Detail.module.css"; 
 
 const Detail = () => {
   const { id } = useParams();
@@ -20,18 +21,22 @@ const Detail = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className={styles.detailContainer}>
       {character ? (
         <div>
-          <h1>{character.name}</h1>
+          <h1 className={styles.detailName}>{character.name}</h1>
           <img
             src={character.image}
-            style={{ width: "300px", height: "420px" }}
+            alt={character.name}
+            className={styles.detailImage}
           />
-          <h1>{character.status}</h1>{" "}
+          <h1 className={styles.detailProperty}>{character.status}</h1>{" "}
+          <p className={styles.detailProperty}>Species: {character.species}</p>
+          <p className={styles.detailProperty}>Gender: {character.gender}</p>
+          <p className={styles.detailProperty}>Origin: {character.origin ? character.origin.name : 'Unknown'}</p>
         </div>
       ) : (
-        <h1>Loading...</h1>
+        <h1 className={styles.loadingMessage}>Loading...</h1>
       )}
     </div>
   );

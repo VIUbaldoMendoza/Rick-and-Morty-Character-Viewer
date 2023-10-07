@@ -1,16 +1,39 @@
+
 .nav {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(51, 51, 51, 0.9);
+  padding: 20px;
+  color: white;
+
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0 10px;
+}
+
+.navLink:hover {
+  color: #ff00ff;
+}
+
+.searchContainer {
+  margin-right: 10px;
+}
+
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
     align-items: center;
   }
-  
-  .wrapperButton {
-    display: flex;
-    gap: 20px;
-    font-weight: bold;
+
+  .navLink {
+    margin: 10px 0;
   }
-  
-  .linkRouter {
-    text-decoration: none;
-    color: inherit;
-  }
+}
+
